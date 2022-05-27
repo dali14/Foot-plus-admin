@@ -10,64 +10,68 @@ export default function Sidebar() {
                 <h3 className="sidebarTitle">Dashboard</h3>
                 <ul className="sidebarList">
 
-                    <Link to="/admin" className="link">
+                    <Link to="/dash" className="link">
                     <li className="sidebarListItem active">
                     <LineStyle className="sidebarIcon"/>
                         Home
                     </li>
                     </Link>
 
-                    <Link to="/questions" className="link">
+                    <Link to="/clients" className="link">
                     <li className="sidebarListItem">
                         <LiveHelp className="sidebarIcon"/>
-                        All Questions
+                         Clients
                     </li>
                     </Link>
-                    <Link to="/add" className="link">
+                    <Link to="/propterrain" className="link">
                     <li className="sidebarListItem">
                         <LiveHelp className="sidebarIcon"/>
-                        New Question
+                        Proprtaire Terrain
                     </li>
                     </Link>
                     
                 </ul>
             </div>
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle">Notification</h3>
+                <h3 className="sidebarTitle">Terrains</h3>
                 <ul className="sidebarList">
-                <Link to="/examen" className="link">
+                <Link to="/AllTerrains" className="link">
                     <li className="sidebarListItem active">
                         <LineStyle className="sidebarIcon"/>
-                        List Examen
+                          Terrains
 
                     </li>
                     </Link>
+                    <Link to="/valideTerrain" className="link">
                     <li className="sidebarListItem">
                         <DoneOutline className="sidebarIcon"/>
-                        Valide Examen
+                        Valide Terrains
 
                     </li>
+                    </Link>
+                    <Link to="/NonValideTerrain" className="link">
                     <li className="sidebarListItem">
                         <RemoveCircleOutline/>
-                        Echec Examen
+                         Non Valide Terrains
 
                     </li>
+                    </Link>
                 </ul>
             </div>
             <div className="sidebarMenu">
                 <h3 className="sidebarTitle">Staff</h3>
                 <ul className="sidebarList">
-                <Link to="/user" className="link">
+                <Link to="/Myaccount" className="link">
                     <li className="sidebarListItem active">
                         <PersonOutline className="sidebarIcon"/>
                         Users
 
                     </li>
                     </Link>
-                    <Link to="/adduser" className="link">
+                    <Link to="/addAdmin" className="link">
                     <li className="sidebarListItem">
                     <GroupAdd className="sidebarIcon"/>
-                        Add User
+                        Add Admin
 
                     </li>
                     </Link>

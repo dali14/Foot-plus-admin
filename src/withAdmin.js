@@ -7,7 +7,7 @@ const withAdmin = (Component) => (props) => {
     const [user, setUser] = useState(null);
 
     const updateUser = () => {
-        fetch("http://localhost:8000/api/user", {headers: {"Authorization": "Bearer "+localStorage.getItem("token")}})
+        fetch("http://localhost:3004/api/details", {headers: {"x-access-token": localStorage.getItem("token")}})
             .then(res => res.json())
             .then(res => {
                 setUser(res)
@@ -17,7 +17,7 @@ const withAdmin = (Component) => (props) => {
 
     useEffect(() => {
         if(localStorage.getItem("token")) {
-            // updateUser();
+            updateUser();
         } else {
             window.location = "/login"
         }

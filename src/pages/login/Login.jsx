@@ -1,44 +1,80 @@
-import React from 'react'
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React, { useState } from 'react';
+import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+
+
 const Login=()=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'8px 0'}
+    
+    const [data, setData] = useState({ email: "", password: "" });
+	const [error, setError] = useState("");
+
+	const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const url = "http://localhost:3004/api/auth";
+			const { data: res } = await axios.post(url, data);
+			localStorage.setItem("token", res.accessToken);
+			window.location = "/dash";
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
+
+    };
     return(
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Sign In</h2>
-                </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                    label="Remember me"
-                 />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                     <Link href="#" >
-                        Forgot password ?
-                </Link>
-                </Typography>
-                <Typography > Do you have an account ?
-                     <Link href="#" >
-                        Sign Up 
-                </Link>
-                </Typography>
-            </Paper>
-        </Grid>
+        <div className={styles.login_container}>
+			<div className={styles.login_form_container}>
+				<div className={styles.left}>
+					<form className={styles.form_container} onSubmit={handleSubmit}>
+						<h1>Admin Dashboard</h1>
+						<input 
+							type="email"
+							placeholder="Email"
+							name="email"
+							onChange={handleChange}
+							value={data.email}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="password"
+							placeholder="Password"
+							name="password"
+							onChange={handleChange}
+							value={data.password}
+							required
+							className={styles.input}
+						/>
+						<Link to="/forgot-password" style={{ alignSelf: "flex-start" }}>
+							<p style={{ padding: "0 15px" }}>Forgot Password ?</p>
+						</Link>
+                        
+						{error && <div className={styles.error_msg}>{error}</div>}
+						<button type="submit" className={styles.green_btn}>
+							Sing In
+						</button>
+                        <Link to="/signup">
+                        <button type="submit" className={styles.green_btn}>
+							Sing UP
+						</button>
+                        </Link>
+					</form>
+				</div>
+				
+			</div>
+		</div>
     )
 }
 
