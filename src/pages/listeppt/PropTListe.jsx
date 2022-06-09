@@ -105,7 +105,7 @@ const PropTListe= () => {
           return (
     
             <div className="productList">
-               <h1 className="productTitle">Liste Des Client </h1>
+               <h1 className="productTitle">Liste Des Propritaire Terrain </h1>
                <br></br>
               <DataGrid
                 rows={clients}
