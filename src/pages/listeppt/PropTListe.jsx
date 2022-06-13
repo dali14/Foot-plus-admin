@@ -19,7 +19,7 @@ const PropTListe= () => {
         },]
 
         const [clients, setClients] = useState(clientRows);
-        const url = 'http://localhost:3004/Users/AllUser';
+        const url = 'http://62.210.130.244:3004/Users/AllUser';
 
         useEffect(() => {
             fetch(url)

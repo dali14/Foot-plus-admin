@@ -22,7 +22,7 @@ const TerrainNonValide= () => {
         },]
 
         const [terrains, setTerrains] = useState(terrainRows);
-        const url = 'http://localhost:3004/terrain/AllTerrain';
+        const url = 'http://62.210.130.244:3004/terrain/AllTerrain';
 
         useEffect(() => {
             fetch(url)

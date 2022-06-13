@@ -15,7 +15,7 @@ const  Terrain= () => {
         e.preventDefault()
     
     
-        fetch(`http://localhost:3004/terrain/UpdateTerrain/${params.id}`, {
+        fetch(`http://62.210.130.244:3004/terrain/UpdateTerrain/${params.id}`, {
           method: 'put', headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             valide  ,
@@ -35,7 +35,7 @@ const  Terrain= () => {
       }
 
       useEffect(() => {
-        fetch(`http://localhost:3004/terrain/OneTerrain/${params.id}`)
+        fetch(`http://62.210.130.244:3004/terrain/OneTerrain/${params.id}`)
         .then(res => res.json())
         .then(res => setTerrain(res))
     },[params.id])

@@ -7,7 +7,7 @@ const withAdmin = (Component) => (props) => {
     const [user, setUser] = useState(null);
 
     const updateUser = () => {
-        fetch("http://localhost:3004/api/details", {headers: {"x-access-token": localStorage.getItem("token")}})
+        fetch("http://62.210.130.244:3004/api/details", {headers: {"x-access-token": localStorage.getItem("token")}})
             .then(res => res.json())
             .then(res => {
                 setUser(res)

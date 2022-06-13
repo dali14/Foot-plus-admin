@@ -65,7 +65,7 @@ const handleSubmit = (e) => {
   e.preventDefault()
 
 
-  fetch("http://localhost:3004/Users/UpdateUser/" + id,{
+  fetch("http://62.210.130.244:3004/Users/UpdateUser/" + id,{
     method: 'put', headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': '*' },
     body: JSON.stringify({
       name: name,
@@ -91,7 +91,7 @@ const handleSubmit = (e) => {
 const updateImage = () => {
   if (imagelink) {
       
-      fetch("http://localhost:3004/Users/UpdateUser/" + id, {
+      fetch("http://62.210.130.244:3004/Users/UpdateUser/" + id, {
           method: 'put',
           body: JSON.stringify({
               image: JSON.parse(imagelink),

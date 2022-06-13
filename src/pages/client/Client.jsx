@@ -15,7 +15,7 @@ const  Client= () => {
         e.preventDefault()
     
     
-        fetch(`http://localhost:3004/Users/UpdateUser/${params.id}`, {
+        fetch(`http://62.210.130.244:3004/Users/UpdateUser/${params.id}`, {
           method: 'put', headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': '*' },
           body: JSON.stringify({
             role ,
@@ -35,7 +35,7 @@ const  Client= () => {
       }
 
       useEffect(() => {
-        fetch(`http://localhost:3004/Users/OneUser/${params.id}`)
+        fetch(`http://62.210.130.244:3004/Users/OneUser/${params.id}`)
         .then(res => res.json())
         .then(res => setClient(res))
     },[params.id])

@@ -3,7 +3,6 @@ import FeaturedInfo from "../../compenents/featuredInfo/FeaturedInfo"
 import withAdmin from "../../withAdmin";
 import Chart from "../../compenents/chart/Chart";
 import { userData } from "../../dummyData";
-
 const Home = (props) => {
   return (
     <div className="home">

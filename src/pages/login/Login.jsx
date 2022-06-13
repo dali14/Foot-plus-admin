@@ -18,7 +18,7 @@ const Login=()=>{
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:3004/api/auth";
+			const url = "http://62.210.130.244:3004/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.accessToken);
 			window.location = "/dash";

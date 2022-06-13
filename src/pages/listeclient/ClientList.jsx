@@ -1,11 +1,8 @@
 import "./UserList.css";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import withAdmin from "../../withAdmin";
-
-
 const ClientList= () => {
 
     const clientRows = [
@@ -19,7 +16,7 @@ const ClientList= () => {
         },]
 
         const [clients, setClients] = useState(clientRows);
-        const url = 'http://localhost:3004/Users/AllUser';
+        const url = 'http://62.210.130.244:3004/Users/AllUser';
 
         useEffect(() => {
             fetch(url)
